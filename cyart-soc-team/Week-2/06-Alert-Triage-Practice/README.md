@@ -11,19 +11,19 @@
 INCOMING ALERT
      │
  STEP 1: Read the Alert                                     
-   → What is the rule? What triggered it?                   
-   → What is the source IP / hostname?                      
-   → What is the timestamp?                               
+    What is the rule? What triggered it?                   
+    What is the source IP / hostname?                      
+    What is the timestamp?                               
 
 
 STEP 2: Is this a known false positive pattern?         
-  → YES → Mark as FP, document, and close               
-   → NO  → Continue to Step 3                           
+   YES → Mark as FP, document, and close               
+    NO  → Continue to Step 3                           
 
  STEP 3: Threat Intelligence Check                         
-   → Check IP in VirusTotal / AlienVault OTX               
-   → Check file hash in VirusTotal                         
-   → Check domain/URL reputation                           
+   Check IP in VirusTotal / AlienVault OTX               
+   Check file hash in VirusTotal                         
+    Check domain/URL reputation                           
 
                           │
               -------------------------
