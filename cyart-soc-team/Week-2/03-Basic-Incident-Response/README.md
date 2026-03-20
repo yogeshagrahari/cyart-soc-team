@@ -1,6 +1,6 @@
 #  03 — Basic Incident Response
 
-> **Goal:** Master the NIST SP 800-61 Incident Response lifecycle and execute response procedures effectively.
+> Goal: Master the NIST SP 800-61 Incident Response lifecycle and execute response procedures effectively.
 
 ---
 
