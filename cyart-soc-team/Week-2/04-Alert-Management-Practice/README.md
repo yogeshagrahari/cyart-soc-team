@@ -1,4 +1,4 @@
-# 🛠️ 04 — Alert Management Practice
+# 04 — Alert Management Practice
 
 > **Tools:** Wazuh · TheHive · Google Sheets  
 > **Goal:** Set up alert classification, create dashboards, open incident tickets, and practice escalation.
