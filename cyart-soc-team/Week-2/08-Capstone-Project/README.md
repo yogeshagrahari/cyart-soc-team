@@ -1,38 +1,14 @@
-# 🏆 08 — Capstone Project: Full Alert-to-Response Cycle
+#  08 — Capstone Project: Full Alert-to-Response Cycle
 
 > **Tools:** Metasploit · Wazuh · CrowdSec · Google Docs  
 > **Goal:** Simulate a real attack, detect it in Wazuh, triage, respond, block, and write a full report.
 
 ---
 
-## 🏗️ Lab Setup
+##  Lab Setup
 
 ### Network Architecture
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                    CAPSTONE LAB NETWORK                          │
-│                   192.168.56.0/24                                │
-│                                                                  │
-│   ┌─────────────────┐         ┌─────────────────────────────┐   │
-│   │  KALI LINUX     │         │  WAZUH SERVER               │   │
-│   │  (Attacker VM)  │         │  192.168.56.10              │   │
-│   │  192.168.56.100 │         │  • SIEM / Log Analysis      │   │
-│   │                 │         │  • Alert Detection          │   │
-│   │  Metasploit     │         │  • Dashboard (port 443)     │   │
-│   └────────┬────────┘         └─────────────────────────────┘   │
-│            │ ATTACK                         ▲                   │
-│            │                                │ Log forwarding     │
-│            ▼                                │                   │
-│   ┌─────────────────┐         ┌─────────────────────────────┐   │
-│   │  METASPLOITABLE2│────────►│  CROWDSEC                   │   │
-│   │  (Target VM)    │         │  (IP Blocking)              │   │
-│   │  192.168.56.101 │         └─────────────────────────────┘   │
-│   │                 │                                           │
-│   │  vsftpd 2.3.4   │ ← Vulnerable service                     │
-│   └─────────────────┘                                           │
-└──────────────────────────────────────────────────────────────────┘
-```
 
 ### VM Setup Requirements
 
@@ -57,7 +33,7 @@ sudo service wazuh-agent start
 
 ---
 
-## ⚔️ Phase 1: Attack Simulation (Metasploit)
+##  Phase 1: Attack Simulation (Metasploit)
 
 ### Step 1: Reconnaissance
 
@@ -167,31 +143,10 @@ exit
 
 ---
 
-## 🔎 Phase 2: Detection & Triage (Wazuh)
+##  Phase 2: Detection & Triage (Wazuh)
 
 ### Step 1: View Alerts in Wazuh Dashboard
 
-```
-Screenshot Reference — Wazuh Detecting the Attack:
-┌────────────────────────────────────────────────────────────────┐
-│  WAZUH → Security Events             [Last 1 hour ▼]          │
-│  ─────────────────────────────────────────────────────────     │
-│                                                                │
-│  ⚠️  NEW ALERTS DETECTED                                       │
-│                                                                │
-│  ┌──────┬────────────────────────────────┬──────────┬───────┐  │
-│  │Level │ Description                    │ Agent    │ Count │  │
-│  ├──────┼────────────────────────────────┼──────────┼───────┤  │
-│  │  12  │ FTP Backdoor connection attempt│ meta-01  │   1   │  │
-│  │  10  │ New file created in /tmp       │ meta-01  │   3   │  │
-│  │   9  │ Root login via unusual port    │ meta-01  │   1   │  │
-│  │   7  │ FTP login from external IP     │ meta-01  │   1   │  │
-│  └──────┴────────────────────────────────┴──────────┴───────┘  │
-│                                                                │
-│  CRITICAL: Root shell spawned from FTP backdoor (Port 6200)   │
-│  Source IP: 192.168.56.100                                     │
-└────────────────────────────────────────────────────────────────┘
-```
 
 ### Step 2: Verify Alert in Wazuh CLI
 
@@ -244,7 +199,7 @@ Attack Kill Chain:
 
 ---
 
-## 🛡️ Phase 3: Response & Containment
+##  Phase 3: Response & Containment
 
 ### Step 1: Isolate the Compromised VM
 
@@ -288,7 +243,7 @@ sudo cscli decisions list
 
 ```
 Screenshot Reference — CrowdSec decisions:
-┌────────────────────────────────────────────────────────────────┐
+
 │  $ sudo cscli decisions list                                   │
 │                                                                │
 │  ─────────────────────────────────────────────────────────     │
@@ -297,7 +252,7 @@ Screenshot Reference — CrowdSec decisions:
 │  1   │ manual   │ Ip:192.168.56.100    │ vsftpd exploitation  │
 │  ─────────────────────────────────────────────────────────     │
 │  1 decisions                                                   │
-└────────────────────────────────────────────────────────────────┘
+
 ```
 
 ### Step 3: Verify Block Works
@@ -319,7 +274,7 @@ echo "✅ Attacker IP successfully blocked"
 
 ---
 
-## 📄 Phase 4: Incident Report
+##  Phase 4: Incident Report
 
 ```
 ══════════════════════════════════════════════════════════════════
@@ -381,7 +336,7 @@ CVSS 10.0 — publicly available Metasploit exploit module.
 
 ---
 
-## 📮 Stakeholder Briefing (Non-Technical)
+##  Stakeholder Briefing (Non-Technical)
 
 ```
 TO:      Security Manager
@@ -401,7 +356,7 @@ attack would cause complete system compromise in production.
 
 ---
 
-## ✅ Capstone Checklist
+##  Capstone Checklist
 
 ```
 CAPSTONE PROJECT COMPLETION CHECKLIST
