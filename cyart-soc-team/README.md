@@ -1,12 +1,12 @@
-# 🛡️ CyArt SOC Team — GitHub Repository
+#  CyArt SOC Team — GitHub Repository
 
-> **Team:** CyArt Security Operations Center  
-> **Purpose:** SOC Analyst Training — Weekly Learning Modules  
-> **Repository:** `cyart-soc-team`
+> Team: CyArt Security Operations Center  
+> Purpose: SOC Analyst Training — Weekly Learning Modules  
+> Repository: `cyart-soc-team`
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 cyart-soc-team/
@@ -35,7 +35,7 @@ cyart-soc-team/
 
 ---
 
-## 📚 Weeks Index
+##  Weeks Index
 
 | Week | Topic | Status |
 |------|-------|--------|
@@ -43,7 +43,7 @@ cyart-soc-team/
 
 ---
 
-## 🔧 Tools Used This Week
+##  Tools Used This Week
 
 | Tool | Purpose | Link |
 |------|---------|-------|
@@ -60,10 +60,10 @@ cyart-soc-team/
 
 ---
 
-## 👥 Contributors
+##  Contributors
 
 - CyArt SOC Team — Tier 1 Analysts
 
 ---
 
-*Last Updated: 2025*
+
