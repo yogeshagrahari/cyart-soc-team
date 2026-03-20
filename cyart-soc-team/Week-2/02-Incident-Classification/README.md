@@ -1,10 +1,10 @@
-# 🗂️ 02 — Incident Classification
+# 02 — Incident Classification
 
 > **Goal:** Accurately classify security incidents using MITRE ATT&CK, ENISA taxonomy, and VERIS framework.
 
 ---
 
-## 📖 Theory Notes
+## Theory Notes
 
 ### 2.1 Incident Categories
 
@@ -23,29 +23,6 @@
 
 ### 2.2 MITRE ATT&CK Framework Overview
 
-```
-MITRE ATT&CK Enterprise Matrix — Key Tactics (TA)
-══════════════════════════════════════════════════
-
-TA0001 Reconnaissance  →  TA0002 Resource Development  →  TA0003 Initial Access
-    │                                                              │
-    └──────────────────────────────────────────────────────────────┘
-                              │
-    ┌─────────────────────────┼───────────────────────────────────┐
-    ▼                         ▼                                   ▼
-TA0002 Execution         TA0003 Persistence              TA0004 Privilege Escalation
-    │                         │                                   │
-    ▼                         ▼                                   ▼
-TA0005 Defense Evasion  TA0006 Credential Access         TA0007 Discovery
-    │                         │                                   │
-    ▼                         ▼                                   ▼
-TA0008 Lateral Movement TA0009 Collection              TA0010 Exfiltration
-    │                                                             │
-    └─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-                       TA0040 Impact
-```
 
 #### Key Techniques for Tier 1 Analysts
 
@@ -114,32 +91,13 @@ Every classified incident should include:
 
 ---
 
-## 🔧 Practical: MITRE ATT&CK Alert Mapping Table
+## Practical: MITRE ATT&CK Alert Mapping Table
 
 ### How to Use MITRE ATT&CK Navigator
 
 **Step 1:** Go to https://mitre-attack.github.io/attack-navigator/
 
 **Step 2:** Click "Create New Layer" → "Enterprise ATT&CK"
-
-```
-Screenshot Reference — ATT&CK Navigator:
-┌──────────────────────────────────────────────────────────────┐
-│  MITRE ATT&CK® Navigator                                     │
-│  ─────────────────────────────────────────────────────────   │
-│  [Create New Layer ▼]  [Open Layer]  [Help]                  │
-│                                                              │
-│  ┌──────────┬──────────┬──────────┬──────────┬───────────┐  │
-│  │TA0001    │TA0002    │TA0003    │TA0004    │TA0005     │  │
-│  │Recon     │Resource  │Initial   │Execution │Persistence│  │
-│  ├──────────┼──────────┼──────────┼──────────┼───────────┤  │
-│  │T1595     │T1583     │T1566 ███ │T1059 ██  │T1547      │  │
-│  │T1592     │T1584     │T1190 ██  │T1204     │T1053      │  │
-│  │T1589     │T1586     │T1078 ██  │T1047     │T1078      │  │
-│  └──────────┴──────────┴──────────┴──────────┴───────────┘  │
-│  (Color intensity = frequency of detection)                  │
-└──────────────────────────────────────────────────────────────┘
-```
 
 **Step 3:** Select techniques you've encountered and color-code by priority level.
 
@@ -155,7 +113,7 @@ Screenshot Reference — ATT&CK Navigator:
 
 ---
 
-## 📚 Resources
+## Resources
 
 - [MITRE ATT&CK Enterprise](https://attack.mitre.org/matrices/enterprise/)
 - [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/)
