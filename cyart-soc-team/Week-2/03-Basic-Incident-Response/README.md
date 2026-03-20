@@ -1,50 +1,13 @@
-# 🔄 03 — Basic Incident Response
+#  03 — Basic Incident Response
 
 > **Goal:** Master the NIST SP 800-61 Incident Response lifecycle and execute response procedures effectively.
 
 ---
 
-## 📖 Theory Notes
+##  Theory Notes
 
 ### 3.1 The 6-Phase IR Lifecycle (NIST SP 800-61)
 
-```
-┌────────────────────────────────────────────────────────────────────┐
-│                  NIST SP 800-61 IR LIFECYCLE                       │
-│                                                                    │
-│  ┌──────────────┐                                                  │
-│  │ 1.PREPARATION│◄──────────────────────────────────┐             │
-│  │  • Playbooks │                                   │             │
-│  │  • Tools     │                                   │             │
-│  │  • Training  │                                   │             │
-│  └──────┬───────┘                              ┌────┴──────────┐  │
-│         │                                      │6. LESSONS     │  │
-│         ▼                                      │   LEARNED     │  │
-│  ┌──────────────┐                              │  • Post-mortem│  │
-│  │2.DETECTION & │                              │  • Improve    │  │
-│  │ ANALYSIS     │                              │  • Update     │  │
-│  │  • SIEM Alerts                              │   playbooks   │  │
-│  │  • Log review│                              └────┬──────────┘  │
-│  │  • IOC check │                                   │             │
-│  └──────┬───────┘                                   │             │
-│         │                                      ┌────┴──────────┐  │
-│         ▼                                      │ 5. RECOVERY   │  │
-│  ┌──────────────┐                              │  • Restore    │  │
-│  │3.CONTAINMENT │                              │  • Validate   │  │
-│  │  • Isolate   │◄──────────────────────────── │  • Monitor    │  │
-│  │  • Block IPs │                              └────┬──────────┘  │
-│  │  • Disable   │                                   │             │
-│  │   accounts   │      ┌──────────────┐             │             │
-│  └──────┬───────┘      │4.ERADICATION │─────────────┘             │
-│         └─────────────►│  • Remove    │                           │
-│                        │   malware    │                           │
-│                        │  • Patch     │                           │
-│                        │  • Rebuild   │                           │
-│                        └──────────────┘                           │
-└────────────────────────────────────────────────────────────────────┘
-```
-
----
 
 ### 3.2 Phase-by-Phase Guide
 
@@ -212,7 +175,7 @@ Tier 1 SOC | CyArt Security Team
 
 ---
 
-## 📚 Resources
+## Resources
 
 - [NIST SP 800-61 Rev 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 - [SANS Incident Handler's Handbook](https://www.sans.org/white-papers/33901/)
