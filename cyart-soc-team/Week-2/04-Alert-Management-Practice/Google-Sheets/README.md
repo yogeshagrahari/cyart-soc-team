@@ -6,8 +6,13 @@
 ---
 
 ##  Sheet Structure
-
-### Sheet 1: Alert Log
+### Step 1: Create the spreadsheet
+```
+1. Open Google Sheets → Create new sheet
+2. Name it: "SOC-Alert-Tracker"
+3. Create headers in Row 1:
+```
+###  Alert Log
 
 | Column | Field | Description | Example |
 |--------|-------|-------------|---------|
