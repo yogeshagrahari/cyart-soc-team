@@ -1,6 +1,8 @@
 #  03 — Basic Incident Response
 
 > **Goal:** Master the NIST SP 800-61 Incident Response lifecycle and execute response procedures effectively.
+The incident response lifecycle provides a structured approach to handling security events. Based on NIST SP 800-61, this module covers all six phases with practical SOC procedures.
+
 
 ---
 
@@ -12,6 +14,39 @@
 ### 3.2 Phase-by-Phase Guide
 
 #### Phase 1: Preparation
+### What to have ready BEFORE an incident:
+**People & Processes:**
+
+
+✓ Incident Response Team (IRT) roster with contacts
+✓ Escalation matrix (Tier 1 → Tier 2 → CISO → Management)
+✓ Playbooks for common scenarios (ransomware, phishing, DDoS)
+✓ Communication templates (internal, external, legal, PR)
+✓ Legal/compliance contacts (GDPR DPA contact, legal counsel)
+```
+
+**Technical Infrastructure:**
+```
+✓ SIEM deployed and tuned (Wazuh / Splunk / QRadar)
+✓ EDR deployed on endpoints (CrowdStrike / Defender / SentinelOne)
+✓ Network traffic monitoring (Zeek / Suricata / Snort)
+✓ Log aggregation (all sources forwarding to SIEM)
+✓ Backup systems tested and verified
+✓ Forensic workstation with tools installed
+✓ Out-of-band communication channel
+```
+
+**Jump Bag (Forensic Toolkit):**
+```bash
+# Must-have tools on forensic USB/workstation:
+- Volatility3          # Memory analysis
+- Autopsy              # Disk forensics
+- Wireshark            # Packet capture
+- FTK Imager           # Disk imaging
+- Velociraptor         # Live response
+- HashMyFiles          # Evidence hashing
+- CyberChef            # Data analysis
+```
 
 | Task | Description | Tools |
 |------|-------------|-------|
