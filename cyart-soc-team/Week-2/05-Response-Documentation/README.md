@@ -2,7 +2,7 @@
 
 > **Tools:** Google Docs · Draw.io  
 > **Goal:** Create IR templates, investigation logs, checklists, and post-mortems.
-
+> **Difficulty:** Beginner
 ---
 
 ##  Incident Response Report Template
@@ -78,6 +78,15 @@ CVSS:     9.8 (Critical)
 │ workstation-07 │ 10.0.0.82    │ Win 10   │ Initial vector     │
 -----------------------------------------------------------------
 
+BUSINESS IMPACT:
+- Confidentiality: HIGH (credentials potentially exposed)
+- Integrity: LOW (no data modified)
+- Availability: LOW (no service disruption)
+
+DATA AT RISK:
+- Corporate email credentials
+- Potential access to Finance applications
+
 4. INDICATORS OF COMPROMISE
 
 Type      Indicator                                    Confirmed?
@@ -88,7 +97,9 @@ C2 IP     45.33.32.156                                 YES
 C2 Domain evil-c2.ru                                   YES
 Registry  HKCU\Software\Microsoft\Windows\...\Run     YES
 
-
+THREAT INTELLIGENCE:
+- VirusTotal: 48/70 engines flagged the URL as malicious
+- AlienVault OTX: IP flagged in 3 threat intel pulses (phishing campaign)
 
 5. ROOT CAUSE ANALYSIS
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -130,10 +141,45 @@ Gaps identified:
   - No EDR on workstations for early detection
   - Flat network — no segmentation between workstations/servers
 
+WHAT CAN BE IMPROVED:
+- Email gateway didn't block the phishing email initially
+- No MFA prevented credential reuse
+- Users need more phishing training
+
+ROOT CAUSE: Phishing email bypassed email gateway filters due to 
+newly registered domain (not yet in blocklists). User clicked link 
+due to urgency framing in subject line.
+
+ACTION ITEMS:
+| # | Action                              | Owner       | Due Date   |
+|---|-------------------------------------|-------------|------------|
+| 1 | Enable MFA for Finance dept         | IT Admin    | 2026-03-31 |
+| 2 | Update email gateway rules          | SecOps      | 2026-03-27 |
+| 3 | Schedule phishing simulation        | Security    | 2026-04-01 |
+| 4 | Update SOC phishing playbook        | SOC Lead    | 2026-03-28 |
+
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 8. REMEDIATION RECOMMENDATIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMMEDIATE ACTIONS (COMPLETED):
+✓ Affected user credentials reset
+✓ Active sessions terminated
+✓ Malicious domain blocked at email gateway
+✓ URL blocked at proxy/firewall
+✓ Affected users notified and instructed on risks
+
+SHORT-TERM ACTIONS (In Progress):
+→ Enable MFA for all Finance department accounts
+→ Deploy email sandboxing for all attachments/links
+→ Review email gateway rules for similar sender patterns
+
+LONG-TERM RECOMMENDATIONS:
+→ Mandatory phishing awareness training (quarterly)
+→ Implement DMARC/DKIM/SPF policies for all domains
+→ Deploy UEBA to detect anomalous login patterns
+
 
 │ #   │ Action                         │ Owner    │ Due Date  │
 --------------------------------------------------------------
@@ -240,7 +286,47 @@ INVESTIGATION LOG — INC-2025-001
 │ 2025-08-18 16:15:00     │ System restored and validated        │
 
 ```
+##  Draw.io IR Workflow Diagram
 
+### Steps to create in Draw.io (app.diagrams.net):
+```
+1. Go to https://app.diagrams.net
+2. Choose "Create New Diagram"
+3. Use flowchart shapes to create this workflow:
+
+[ALERT RECEIVED] 
+        ↓
+[FALSE POSITIVE?] → YES → [CLOSE & DOCUMENT]
+        ↓ NO
+[OPEN INCIDENT TICKET]
+        ↓
+[ANALYZE & CLASSIFY]
+        ↓
+[ASSIGN PRIORITY]
+        ↓
+[CONTAIN] → [ISOLATE ENDPOINT] + [BLOCK IOCs]
+        ↓
+[PRESERVE EVIDENCE]
+        ↓
+[ERADICATE] → [REMOVE MALWARE] + [PATCH VULN]
+        ↓
+[RECOVER] → [RESTORE + VERIFY]
+        ↓
+[LESSONS LEARNED] → [UPDATE PLAYBOOK]
+        ↓
+[CLOSE TICKET]
+
+4. Export as PNG (high resolution: 300 DPI)
+5. Save as: assets/screenshots/lab02/ir-workflow-diagram.png
+```
+## Lab Completion Checklist
+
+- [ ] Full IR report written in Google Docs
+- [ ] Investigation log table completed
+- [ ] Phishing checklist created
+- [ ] IR workflow diagram created in Draw.io
+- [ ] 50-word post-mortem written
+- [ ] All screenshots saved to assets
 ---
 
 ## Non-Technical Manager Briefing
