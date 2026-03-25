@@ -1,1 +1,52 @@
+# Module 01 Study Notes — Alert Priority Levels
 
+## Key Takeaways
+
+1. **CVSS is a baseline** — always combine with asset criticality and business context.
+2. **CISA KEV catalog** is gold — if a CVE is there, treat it as Critical regardless of CVSS.
+3. **False positives waste analyst time** — use threat intelligence to validate before escalating.
+4. **Document your reasoning** — write WHY you assigned a priority level.
+
+## Memory Aid: CVSS Mnemonics
+
+```
+"A Crab Patiently Sat Counting Insects Attending"
+ |  |    |         |   |         |       |
+AV  AC   PR       UI  Scope     CIA      A
+```
+
+## Wazuh Rule Priority Mapping
+
+```xml
+<!-- Wazuh rule severity → SOC priority -->
+Level  1-4  → Low
+Level  5-8  → Medium  
+Level  9-12 → High
+Level 13-15 → Critical
+```
+
+## Quick CVSS Reference Card
+
+```
+CRITICAL:  9.0 – 10.0  → Respond IMMEDIATELY (< 1 hour)
+HIGH:      7.0 – 8.9   → Respond URGENTLY    (< 4 hours)
+MEDIUM:    4.0 – 6.9   → Respond SOON        (< 24 hours)
+LOW:       0.1 – 3.9   → Schedule response   (< 1 week)
+```
+
+## Study Resources
+
+| Resource | Type | URL |
+|----------|------|-----|
+| CVSS v3.1 Guide | Documentation | https://www.first.org/cvss/ |
+| NVD CVE Database | Tool | https://nvd.nist.gov |
+| CISA KEV | Advisory | https://www.cisa.gov/known-exploited-vulnerabilities-catalog |
+| Log4Shell Deep Dive | Case Study | https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-356a |
+| TryHackMe SOC Level 1 | Practice | https://tryhackme.com/path/outline/soclevel1 |
+
+## Practice Labs
+
+- [ ] Open NVD and look up CVE-2021-44228 — note the CVSS vector string
+- [ ] Use the CVSS online calculator to score 3 vulnerabilities yourself
+- [ ] In Wazuh, filter alerts by rule level (9+) and classify each
+- [ ] Create a Google Sheet with 10 mock alerts and priority assignments
