@@ -1,5 +1,0 @@
-url,title,visit_count,typed_count,visit_time,last_visit,transition
-http://test.com/payload,Test Payload,1,0,2026-03-11 14:23:00 UTC,2026-03-11 14:23:00 UTC,Auto bookmark
-http://test.com,Test Site,3,1,2026-03-11 14:22:00 UTC,2026-03-11 14:22:00 UTC,Auto bookmark
-http://test.com,Test Site,3,1,2026-03-11 13:22:00 UTC,2026-03-11 14:22:00 UTC,Auto bookmark
-http://test.com,Test Site,3,1,2026-03-11 12:22:00 UTC,2026-03-11 14:22:00 UTC,Auto bookmark
